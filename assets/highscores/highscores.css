@@ -1,0 +1,43 @@
+* {
+   
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    margin:0;
+    padding: 0;
+    border: 1px solid pink; /* DELETE */
+    line-height: 2;
+}
+
+body{
+    color: white;
+    background-color: black;
+}
+#highscores{
+    margin: 10%;
+    margin-top: 5%;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    border: 1px solid blue;
+}
+
+button {
+    font-weight:bolder;
+    background-color: aquamarine;
+    line-height: 2.5;
+    color: black;
+    border: 2px green solid;
+    border-radius: 5px;
+    width: 30%;
+    margin:10px;
+   
+}
+
+.buttons {
+    color: black;
+    display: inline-flex;
+    width:100%;
+    border: 1px solid red;
+    justify-content: center;
+}
+

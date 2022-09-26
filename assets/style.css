@@ -4,7 +4,7 @@
     font-family: 'Courier New', Courier, monospace;
     margin:0;
     padding: 0;
-    border: 1px solid pink;
+    border: 1px solid pink; /* DELETE */
     line-height: 2;
 }
 
@@ -46,6 +46,7 @@ body {
     padding: 20px;
     border: 1px solid rgb(8, 0, 255);
 }
+
 a:hover {
     color: aquamarine;
 }
