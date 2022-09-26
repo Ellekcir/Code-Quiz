@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>CODING QUIZ</title>
+</head>
+<body>
+    <div class="container">
+        <div id="top-bar">
+        <!-- This is the external link to the highscores recorded-->
+            <div class="scores"><a href="highscores.html" style="text-decoration:none">View highscores</a></div>
+        <!-- This is the timer that starts when the quiz starts-->
+            <div class="timer">Time: <span id="countdown">0</span></div>
+        </div>
+    <!-------------------------------------------------------------------->
+        <main class="main-screen">
+
+        <!--Introduction to the quiz-->    
+            <div id="introduction" class="start">
+                <h1>Welcome to the ultimate Coding Quiz</h1>
+                <p>
+                    Try to answer the following code-related questions within the
+                    time limit. Please keep in mind that incorrect answers will
+                    penalise your score and deduct your time by 15 seconds each one!
+                </p>
+                <button id="start-button">Start Quiz</button>
+            </div>
+
+    <!--------------The questions ---------------------------------->
+
+            <div id="questions" class="hide">
+                <h2 id="question">QUESTION GOES HERE</h2>
+                <ul id="choices" class="choices">
+                    <li><button>Answer 1</button></li>
+                    <li><button>Answer 2</button></li>
+                    <li><button>Answer 3</button></li>
+                    <li><button>Answer 4</button></li>
+                </ul>
+            </div>
+
+    <!---------------Final page showing the final scores------------------------------------------>
+            <div id="fin-quiz-page">
+                <h2>All done!</h2>
+                <p>Your final score is <span id="final-score"></span></p>
+                <p>Enter your initials: <input type="text" style="width:40%; text-align:auto;" id="initials" max="3" />
+                <button id="submit">Submit</button>
+                </p>
+            </div>
+            <div id="right-wrong"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
