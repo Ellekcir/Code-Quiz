@@ -4,7 +4,7 @@
     font-family: 'Courier New', Courier, monospace;
     margin:0;
     padding: 0;
-    border: 1px solid pink; /* DELETE */
+
     line-height: 2;
 }
 
@@ -18,7 +18,7 @@ body{
     justify-content: center;
     text-align: center;
     padding: 50px;
-    border: 1px solid blue;
+
 }
 
 button {
@@ -37,7 +37,7 @@ button {
     color: black;
     display: inline-flex;
     width:100%;
-    border: 1px solid red;
+ 
     justify-content: center;
 }
 
