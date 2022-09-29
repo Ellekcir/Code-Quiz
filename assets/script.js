@@ -1,10 +1,7 @@
 //--------------------------------------------------
 //QUESTIONS
-//WHEN I answer a question
-//THEN I am presented with another question
 //--------------------------------------------------
 
-// QUESTIONS OBJECT //
 var arrQuestions = [
 
     {
@@ -15,7 +12,7 @@ var arrQuestions = [
     {
         question: "From the given array which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
         choices: [1, 0, 3, 2],
-        answer: 0
+        answer: 1
     },
     {
         question:"How do we declare a conditional statement in JavaScript?",
@@ -35,34 +32,34 @@ var arrQuestions = [
 ]
 
 //--------------------------------------------------
-//START PAGE - START BUTTON
-//WHEN I click the start button
-//THEN a timer starts and I am presented with a question
+//START PAGE
+//START BUTTON
+//TIMER
+//QUESTIONS
 //--------------------------------------------------
 
 var timerEl = document.getElementById('countdown');
 var startButton = document.getElementById('start-button');
 let introDiv = document.getElementById('introduction');
 let mainClass = document.getElementsByClassName('main-screen');
-let timeLeft = 100;
-
+let timeLeft = 60;
+//60 second countdown timer
 function startTimer() {
     var timeInterval = setInterval(function () {
         timeLeft--;
-        if (timeLeft > 1) {
+        if (timeLeft > 1 ) {
             timerEl.textContent = timeLeft;
 
-        } else if (timeLeft === 1) {
+        } else if (timeLeft === 1 ) {
             timerEl.textContent = 'Times UP!';
             
             clearInterval(timeInterval);
-
-          displayMessage();
-        }   
+        }
 }, 1000);
 
 }
 
+//The questions dynamic page
 let questionNumber = 0 
 let score = 0
 
@@ -75,11 +72,9 @@ function displayQuestions() {
     h2El.innerHTML = arrQuestions[questionNumber].question
     let ulEl = document.createElement("ul");
     ulEl.setAttribute("id","choices");
-    
-    
+ 
     for (let i = 0; i < arrQuestions[questionNumber].choices.length; i++) {
-       // console.log(arrQuestions[questionNumber].choices[i])
-        let liEl = document.createElement("li");
+       let liEl = document.createElement("li");
         let btnEl = document.createElement("button");
         btnEl.innerHTML = arrQuestions[questionNumber].choices[i];
         btnEl.addEventListener("click", function(event){
@@ -87,105 +82,71 @@ function displayQuestions() {
             
             if (event.target.innerHTML==arrQuestions[questionNumber].answer) {
                // event.target.style.backgroundColor="green"
-                score += 10
+                score += 20
                 questionNumber++;
                 mainClass[0].innerHTML="";
                 displayQuestions()   
                 console.log("You have just answered the question correct, your new score is: " + score)
+                localStorage.setItem("count", score);
                
             } else {
                 //event.target.style.backgroundColor="red"
+                score -= 5;
                 timeLeft -= 15;
                 questionNumber++;
                 mainClass[0].innerHTML="";
                 displayQuestions()   
                 console.log("You have just answered the question incorrect, your score is: " + score )
                 
-            } 
-                return finQuiz 
-        })
-        liEl.append(btnEl)
+            } return finQuiz
+             
+     
+
+          })
+        mainClass[0].append(questDiv);  
+        questDiv.append(h2El, ulEl);
         ulEl.append(liEl)
+        liEl.append(btnEl)
+          
+
+   
+
+    
+}}
+
+
+function finQuiz() {
+    
+    let finDiv = document.createElement("div");
+    finDiv.setAttribute("id","fin-quiz");
+    finDiv.className="hide"
+    let h2El = document.createElement("h2");
+    h2El.innerHTML = textContent("All done!")
+    let spanEl = document.createElement("span");
+    spanEl.setAttribute("id","final-score");
+    spanEl.innerHTML = textContent("Your final score is: " + score)
+    let inputEl = document.createElement("input");
+    inputEl.setAttribute("id","initials");
+    inputEl.innerHTML = textContent("Enter your initials: " )
+    let btnEl = document.createElement("button");
+    btnEl.setAttribute("id","submit");
+    btnEl.innerHTML = textContent("Submit" );
+    mainClass[0].append(finDiv);
+    finDiv.append(h2El, spanEl, inputEl, btnEl);
+
+   
+    btnEl.submit.addEventListener("click", function(event){
+        event.preventDefault();})
+        document.getElementById("final-score").innerHTML = count;
+    
 
     } 
 
-    function finQuiz() {
-        finDiv.className="hide"
-        let finDiv = document.createElement("div");
-        finDiv.setAttribute("id","fin-quiz");
-        let h2El = document.createElement("h2");
-        h2El.innerHTML = textContent("All done!")
-      //  let spanEl = document.createElement("input");
-      //  ulEl.setAttribute("id","choices");
-       // let inputEl = document.createElement("input");
-       // ulEl.setAttribute("id","choices");
-    }
-
-
-  //  let nextbtn = document.createElement("button")
-   // nextbtn.innerHTML="nextQuestion";
-   // nextbtn.style.backgroundColor="yellow";
-   // nextbtn.style.color="red"
-   // nextbtn.addEventListener("click", function(){
-     //   questionNumber++;
-       // mainClass[0].innerHTML="";
-//displayQuestions()
-  //  }
-  questDiv.append(h2El, ulEl);
-   // console.log(questDiv);
- //  console.log(mainClass);
-    mainClass[0].append(questDiv);
-
-
-
-    
-}
-
 function startQuiz() {
+    console.log("You have started the Code Quiz");
     startTimer();
-    displayQuestions()
+    displayQuestions();
 }
+     
 startButton.addEventListener("click", startQuiz)
-
-
- /* 
-var firstScreen = document.getElementById('introduction');
-var secondScreen = document.getElementById('questions');
-var thirdScreen = document.getElementById('fin-quiz-page');
-
-
-function startQuiz() { 
-    if (firstScreen === 'show') {
-["secondScreen","thirdScreen"] = 'hide'
-    
-}
-}
-
-
-
-//--------------------------------------------------
-//TIMER 
-//WHEN I answer a question incorrectly
-//THEN time is subtracted from the clock
-//WHEN all questions are answered or the timer reaches 0
-//THEN the game is over
-//--------------------------------------------------
-
-
-//--------------------------------------------------
-//QUESTIONS
-//WHEN I answer a question
-//THEN I am presented with another question
-//--------------------------------------------------
-
-/* 
-    */
-
-//--------------------------------------------------
-//GAME OVER PAGE
-//WHEN the game is over
-//THEN I can save my initials and score
-//--------------------------------------------------
-
-
-
+btnEl.innerHTML = localStorage.setItem ("score", score);

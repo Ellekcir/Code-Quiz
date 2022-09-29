@@ -9,11 +9,14 @@ I created this project to make a learning experience interactive and fun. On thi
 Here you can see a mini clip of how the site functions, on "Start Quiz" a timer is started and the questions shall loop through to the next question as you select your answers.
 
 
-    ![alt text](./assets/images/CODING%20QUIZ.webm)
-    ![alt text](./assets/images/console.jpg)
+    ![Short video clip of Code Quiz](./assets/images/CODING%20QUIZ.webm)
+    ![The console logging points](./assets/images/console.jpg)
 
 
 Console Log Features step by step comments to interact with page actions and scores.
+
+Come play -
+https://ellekcir.github.io/Code-Quiz/
 
 ## Credits
 
