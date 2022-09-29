@@ -18,8 +18,8 @@
     <!-------------------------------------------------------------------->
         <main class="main-screen">
 
-        <!--Introduction to the quiz-->    
-            <div id="introduction" class="start">
+        <!--Introduction to the quiz mainClass[0].innerHTML="";-->    
+            <div id="introduction" class="show">
                 <h1>Welcome to the ultimate Coding Quiz</h1>
                 <p>
                     Try to answer the following code-related questions within the
@@ -29,29 +29,29 @@
                 <button id="start-button">Start Quiz</button>
             </div>
 
-    <!--------------The questions ---------------------------------->
+    <!--------------The questions -----------------------------
 
-            <div id="questions" class="hide">
+            <div id="questions">
                 <h2 id="question">QUESTION GOES HERE</h2>
-                <ul id="choices" class="choices">
+                <ul id="choices">
                     <li><button>Answer 1</button></li>
                     <li><button>Answer 2</button></li>
                     <li><button>Answer 3</button></li>
                     <li><button>Answer 4</button></li>
                 </ul>
-            </div>
+            </div>----->
 
-    <!---------------Final page showing the final scores------------------------------------------>
-            <div id="fin-quiz-page">
+   <!---------------Final page showing the final scores-------------
+            <div id="fin-quiz" >
                 <h2>All done!</h2>
                 <p>Your final score is <span id="final-score"></span></p>
                 <p>Enter your initials: <input type="text" style="width:40%; text-align:auto;" id="initials" max="3" />
                 <button id="submit">Submit</button>
                 </p>
             </div>
-            <div id="right-wrong">RIGHT WRONG TESTING </div>
+            <div id="right-wrong">RIGHT WRONG TESTING </div>----------------------------->
         </main>
     </div>
-    <script src="script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
