@@ -52,8 +52,9 @@ function startTimer() {
 
         } else if (timeLeft === 1 ) {
             timerEl.textContent = 'Times UP!';
-            
+        
             clearInterval(timeInterval);
+            finQuiz()
         }
 }, 1000);
 
@@ -115,11 +116,31 @@ function displayQuestions() {
 }}
 
 
+
+
+    function add_local(){
+        window.localStorage['display'] = document.getElementById('firstname').value;
+        window.localStorage['display']= document.getElementById('age').value;
+        window.localStorage['display']= document.getElementById('course').value;
+      }
+
+
+
+function startQuiz() {
+    console.log("You have started the Code Quiz");
+    startTimer();
+    displayQuestions();
+}
+     
+startButton.addEventListener("click", startQuiz)
+btnEl.innerHTML = localStorage.setItem ("score", score);
+
+
 function finQuiz() {
     
     let finDiv = document.createElement("div");
     finDiv.setAttribute("id","fin-quiz");
-    finDiv.className="hide"
+    //finDiv.className="hide"
     let h2El = document.createElement("h2");
     h2El.innerHTML = textContent("All done!")
     let spanEl = document.createElement("span");
@@ -139,14 +160,11 @@ function finQuiz() {
         event.preventDefault();})
         document.getElementById("final-score").innerHTML = count;
     
-
+        if (timeLeft >= 0) {
+            var timeRemaining =timeLeft;
+            var pEl =document.createElement("p");
+            clearInterval(holdInterval);
+            pEl.textContent = "your final score: " + timeRemaining;
+            questDiv.appendChild(pEl)
+        }
     } 
-
-function startQuiz() {
-    console.log("You have started the Code Quiz");
-    startTimer();
-    displayQuestions();
-}
-     
-startButton.addEventListener("click", startQuiz)
-btnEl.innerHTML = localStorage.setItem ("score", score);
